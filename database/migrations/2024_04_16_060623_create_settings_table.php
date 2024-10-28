@@ -58,8 +58,8 @@ return new class extends Migration
 
             $table->enum('user_verification', ['0', '1'])->default('0')->nullable();
             $table->integer('minimum_order_amount')->nullable();
-            $table->json('tags')->nullable();
-            
+            $table->json('allowed_ip')->nullable();
+
             $table->string('start_time_monday',150)->nullable();
             $table->string('monday',150)->nullable();
             $table->string('end_time_monday',150)->nullable();

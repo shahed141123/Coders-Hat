@@ -26,6 +26,8 @@ class SettingController extends Controller
     public function updateOrcreateSetting(Request $request)
     {
 
+        // dd($request->all());
+
         try {
             $webSetting = Setting::firstOrNew([]);
 
@@ -94,8 +96,9 @@ class SettingController extends Controller
                 'reddit_url'           => $request->reddit_url,
                 'tumblr_url'           => $request->tumblr_url,
                 'tiktok_url'           => $request->tiktok_url,
-                'user_verification'    => !empty($request->user_verification) ? $request->user_verification : 0 ,
-                'minimum_order_amount' => !empty($request->minimum_order_amount) ? $request->minimum_order_amount : 0 ,
+                'user_verification'    => isset($request->user_verification) ? $request->user_verification : "0",
+                'minimum_order_amount' => !empty($request->minimum_order_amount) ? $request->minimum_order_amount : "0" ,
+                'allowed_ip'           => $request->input('allowed_ip'),
                 'start_time_monday'    => $request->start_time_monday,
                 'monday'               => $request->monday,
                 'end_time_monday'      => $request->end_time_monday,

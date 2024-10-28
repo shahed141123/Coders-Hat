@@ -96,6 +96,7 @@ class SettingController extends Controller
                 'reddit_url'           => $request->reddit_url,
                 'tumblr_url'           => $request->tumblr_url,
                 'tiktok_url'           => $request->tiktok_url,
+                'api_verification'     => isset($request->api_verification) ? $request->api_verification : "0",
                 'user_verification'    => isset($request->user_verification) ? $request->user_verification : "0",
                 'minimum_order_amount' => !empty($request->minimum_order_amount) ? $request->minimum_order_amount : "0" ,
                 'allowed_ip'           => $request->input('allowed_ip'),

@@ -21,16 +21,15 @@ class RestrictIpMiddleware
 
     public function handle(Request $request, Closure $next): Response
     {
-        $apiKey = $request->header('X-API-KEY');
-        // dd($clientIp);
-        // $allowedIps = Setting::latest('id')->first(['allowed_ip']);
         $settings = Setting::latest('id')->first();
-        $allowedIps = collect(json_decode($settings->allowed_ip, true))->pluck('value')->toArray();
-        if (!in_array($apiKey, $allowedIps)) {
-            return response()->json(['message' => 'Access Denied.'], 403);
-        }
+        if ($settings->api_verification == "1") {
+            $apiKey = $request->header('X-API-KEY');
 
+            $allowedIps = collect(json_decode($settings->allowed_ip, true))->pluck('value')->toArray();
+            if (!in_array($apiKey, $allowedIps)) {
+                return response()->json(['message' => 'Access Denied.'], 403);
+            }
+        }
         return $next($request);
     }
-
 }

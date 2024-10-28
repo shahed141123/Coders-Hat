@@ -22,7 +22,7 @@ class RestrictIpMiddleware
     public function handle(Request $request, Closure $next): Response
     {
         $settings = Setting::latest('id')->first();
-        if ($settings->api_verification == "1") {
+        if (isset($settings->api_verification) && $settings->api_verification == "1") {
             $apiKey = $request->header('X-API-KEY');
 
             $allowedIps = collect(json_decode($settings->allowed_ip, true))->pluck('value')->toArray();

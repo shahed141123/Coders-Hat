@@ -1,7 +1,7 @@
 <x-admin-app-layout :title="'Blog Edit'">
     <style>
         .image-input-placeholder {
-            background-image: url({{ asset('admin/assets/media/svg/files/blank-image.svg') }});
+            background-image: url({{ asset('backend/assets/media/svg/files/blank-image.svg') }});
         }
     </style>
     <div id="kt_app_content_container" class="app-container container-xxl">

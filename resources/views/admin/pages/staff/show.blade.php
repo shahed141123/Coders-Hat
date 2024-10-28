@@ -12,7 +12,7 @@
                     <div class="d-flex flex-center flex-column py-5">
 
                         <div class="symbol symbol-100px symbol-circle mb-7">
-                            <img src="{{ asset('admin/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" />
+                            <img src="{{ asset('backend/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" />
                         </div>
 
 

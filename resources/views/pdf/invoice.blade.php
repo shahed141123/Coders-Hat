@@ -214,7 +214,7 @@
     <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
     <script src="{{ asset('frontend/js/main.js') }}"></script>
     <script src="{{ asset('frontend/js/sidebar.js') }}"></script>
-    <script src="{{ asset('admin/js/custom.js') }}"></script>
+    <script src="{{ asset('backend/js/custom.js') }}"></script>
 </body>
 
 </html>

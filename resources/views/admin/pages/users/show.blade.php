@@ -7,7 +7,7 @@
                     <div class="d-flex flex-center flex-column py-5">
 
                         <div class="symbol symbol-100px symbol-circle mb-7">
-                            <img src="{{ asset('admin/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" />
+                            <img src="{{ asset('backend/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" />
                         </div>
                         <a href="#"
                             class="fs-3 text-gray-800 text-hover-primary fw-bolder mb-3">{{ $user->name }}</a>

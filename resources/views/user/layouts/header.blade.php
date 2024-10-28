@@ -24,7 +24,7 @@
 
         <div class="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <a href="{{ route('home') }}" class="d-lg-none">
-                <img alt="Logo" src="{{ asset('admin/assets/media/logos/logo-2.svg') }}" class="h-30px" />
+                <img alt="Logo" src="{{ asset('backend/assets/media/logos/logo-2.svg') }}" class="h-30px" />
             </a>
         </div>
 
@@ -65,7 +65,7 @@
                     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px" data-kt-menu="true">
 
                         <div class="d-flex flex-column bgi-no-repeat rounded-top"
-                            style="background-image:url('{{ asset('admin/assets/media/misc/pattern-1.jpg') }}')">
+                            style="background-image:url('{{ asset('backend/assets/media/misc/pattern-1.jpg') }}')">
 
                             <h3 class="text-white fw-bold px-9 mt-10 mb-6">Notifications
                                 <span class="fs-8 opacity-75 ps-3">24 reports</span>
@@ -413,7 +413,7 @@
 
                     <div class="cursor-pointer symbol symbol-30px symbol-md-40px" data-kt-menu-trigger="click"
                         data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
-                        <img src="{{ asset('admin/assets/media/avatars/300-1.jpg') }}" alt="user" />
+                        <img src="{{ asset('backend/assets/media/avatars/300-1.jpg') }}" alt="user" />
                     </div>
 
                     <div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-800 menu-state-bg menu-state-primary fw-bold py-4 fs-6 w-275px"
@@ -423,7 +423,7 @@
                             <div class="menu-content d-flex align-items-center px-3">
 
                                 <div class="symbol symbol-50px me-5">
-                                    <img alt="Logo" src="{{ asset('admin/assets/media/avatars/300-1.jpg') }}" />
+                                    <img alt="Logo" src="{{ asset('backend/assets/media/avatars/300-1.jpg') }}" />
                                 </div>
 
 

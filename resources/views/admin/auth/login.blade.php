@@ -73,7 +73,7 @@
                 </div>
             </div>
             <div class="d-none d-lg-flex flex-lg-row-fluid w-100 bgi-size-cover bgi-position-y-center bgi-position-x-start bgi-no-repeat"
-                style="background-image: url({{ asset('admin/assets/images/adminImage.png') }})">
+                style="background-image: url({{ asset('backend/assets/images/adminImage.png') }})">
             </div>
         </div>
     </div>

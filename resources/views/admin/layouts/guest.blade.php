@@ -19,13 +19,13 @@
     <meta property="og:url" content="https://keenthemes.com/metronic" />
     <meta property="og:site_name" content="Keenthemes | Metronic" />
     <link rel="canonical" href="https://preview.keenthemes.com/metronic8" />
-    <link rel="shortcut icon" href="{{ asset('admin/assets/media/logos/favicon.ico') }}" />
+    <link rel="shortcut icon" href="{{ asset('backend/assets/media/logos/favicon.ico') }}" />
 
     {{-- <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700" /> --}}
 
 
-    <link href="{{ asset('admin/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
-    <link href="{{ asset('admin/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/assets/plugins/global/plugins.bundle.css') }}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('backend/assets/css/style.bundle.css') }}" rel="stylesheet" type="text/css" />
 
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
@@ -46,12 +46,12 @@
         var hostUrl = "assets/";
     </script>
 
-    <script src="{{ asset('admin/assets/plugins/global/plugins.bundle.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/scripts.bundle.js') }}"></script>
+    <script src="{{ asset('backend/assets/plugins/global/plugins.bundle.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/scripts.bundle.js') }}"></script>
 
 
-    <script src="{{ asset('admin/assets/js/custom/authentication/sign-in/general.js') }}"></script>
-    <script src="{{ asset('admin/assets/js/custom/apps/user-management/users/view/update-password.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/custom/authentication/sign-in/general.js') }}"></script>
+    <script src="{{ asset('backend/assets/js/custom/apps/user-management/users/view/update-password.js') }}"></script>
 
 		@stack('scripts')
 

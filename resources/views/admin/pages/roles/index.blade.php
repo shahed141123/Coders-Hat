@@ -39,7 +39,7 @@
             <div class="card h-md-100">
                 <div class="card-body d-flex flex-center">
                     <a href="{{ route('admin.role.create') }}" class="btn btn-clear d-flex flex-column flex-center">
-                        <img src="{{ asset('admin/assets/media/illustrations/sketchy-1/4.png') }}" alt=""
+                        <img src="{{ asset('backend/assets/media/illustrations/sketchy-1/4.png') }}" alt=""
                             class="mw-100 mh-150px mb-7" />
                         <div class="fw-bolder fs-3 text-gray-600 text-hover-primary">Add New Role</div>
                     </a>

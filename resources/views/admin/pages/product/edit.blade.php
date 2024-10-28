@@ -1,7 +1,7 @@
 <x-admin-app-layout :title="'Product Edit'">
     <style>
         .image-input-empty {
-            background-image: url({{ asset('admin/assets/media/svg/files/blank-image.svg') }});
+            background-image: url({{ asset('backend/assets/media/svg/files/blank-image.svg') }});
         }
 
         /* Custom Multi file upload */

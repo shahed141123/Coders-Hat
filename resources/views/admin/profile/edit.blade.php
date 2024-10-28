@@ -11,7 +11,7 @@
                     <div class="d-flex flex-center flex-column py-5">
 
                         <div class="symbol symbol-100px symbol-circle mb-7">
-                            {{-- <img src="{{ asset('admin/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" /> --}}
+                            {{-- <img src="{{ asset('backend/assets/media/svg/avatars/blank-dark.svg') }}" alt="image" /> --}}
                             <img src="{{ !empty(Auth::guard('admin')->user()->photo) && file_exists(public_path('storage/' . Auth::guard('admin')->user()->photo)) ? asset('storage/' . Auth::guard('admin')->user()->photo) : asset('https://ui-avatars.com/api/?name=' . urlencode(Auth::guard('admin')->user()->name)) }}"
                                 alt="{{ Auth::guard('admin')->user()->name }}" />
                         </div>

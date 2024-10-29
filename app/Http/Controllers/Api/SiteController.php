@@ -76,6 +76,12 @@ class SiteController extends Controller
             'blog_posts' => BlogPost::latest('id')->where('status', 'publish')->get(),
         ], 200);
     }
+    public function settingsInfo()
+    {
+        return response()->json([
+            'settings' => Setting::latest('id')->first(),
+        ], 200);
+    }
 
     public function blogDetails($slug)
     {

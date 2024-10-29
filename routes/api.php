@@ -32,7 +32,7 @@ Route::middleware(['restrict_ip'])->group(function () {
     Route::get('all-faqs', [SiteController::class, 'allFaq'])->name('allfaq');
     Route::post('contact/store', [ContactController::class, 'store'])->name('contact.add');
     Route::post('email-subscription/store', [NewsletterController::class, 'store'])->name('subscription.add');
-
+    Route::get('settings-info', [SiteController::class, 'settingsInfo'])->name('settings.info');
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [UserApiController::class, 'logout']);

@@ -218,7 +218,7 @@
                             <div class="card-body pt-0">
                                 <div class="fv-row">
                                     <x-metronic.label class="form-label">Category Id</x-metronic.label>
-                                    <x-metronic.select-option class="form-select mb-2" name="category_id[]"
+                                    <x-metronic.select-option class="form-select mb-2" name="category_id"
                                         data-control="select2" data-placeholder="Select an option"
                                         data-allow-clear="true" id="category_id" multiple>
                                         <option></option>

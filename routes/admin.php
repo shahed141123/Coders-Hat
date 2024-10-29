@@ -26,6 +26,7 @@ use App\Http\Controllers\Admin\BlogPostController;
 use App\Http\Controllers\Admin\BlogTagController;
 use App\Http\Controllers\Admin\BrandController;
 use App\Http\Controllers\Admin\CatalogueController;
+use App\Http\Controllers\Admin\ClientController;
 use App\Http\Controllers\Admin\ContactController;
 use App\Http\Controllers\Admin\FaqCategoryController;
 use App\Http\Controllers\Admin\FaqController;
@@ -38,6 +39,7 @@ use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\ShippingManagementController;
 use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\StockManagementController;
+use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\DealBannerController;
@@ -102,8 +104,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         [
             'blog-category'       => BlogCategoryController::class, //done
             'blog-tags'           => BlogTagController::class, //done
-            'catalogue'           => CatalogueController::class, //done
-            'shipping-management' => ShippingManagementController::class, //done
+            'team-member'         => TeamMemberController::class, //done
         ],
         ['except' => ['show', 'create', 'edit']]
     );
@@ -126,30 +127,16 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
             'staff'                 => StaffController::class, //done
             'user-management'       => UserManagementController::class, //done
             'admin-managemnet'      => UserManagementController::class, //done
-            'categories'            => CategoryController::class, //done
-            'icons'                 => IconController::class, //done
             'newsletters'           => NewsletterController::class,
-            'brands'                => BrandController::class, //done
+            'clients'               => ClientController::class, //done
+            // 'brands'                => BrandController::class, //done
             'contacts'              => ContactController::class,
             'product'               => ProductController::class,
             'banner'                => PageBannerController::class,
         ],
     );
 
-    Route::controller(StockManagementController::class)->group(function () {
-        Route::get('/stock-management', 'index')->name('stock-management.index');
-        Route::put('/stock/update/{id}', 'stockUpdate')->name('stock.update');
-    });
-    // Route::controller(ShippingManagementController::class)->group(function () {
-    //     Route::get('/shipping-management', 'index')->name('shipping-management.index');
-    // });
-    Route::controller(OrderManagementController::class)->group(function () {
-        Route::get('/order-management', 'index')->name('order-management.index');
-        Route::get('/order/{id}/details', 'orderDetails')->name('orderDetails');
-        Route::get('/order/report', 'orderReport')->name('orderReport');
-        Route::put('/order/update/{id}', 'statusUpdate')->name('order.update');
 
-    });
 
     Route::get('active-mail-configuration', [EmailSettingController::class, 'activeMailConfiguration'])->name('active.mail.configuration');
     Route::put('email-settings', [EmailSettingController::class, 'emailUpdateOrCreate'])->name('email.settings.updateOrCreate');
@@ -157,8 +144,8 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
 
     Route::post('email-settings/toggle-status/{id}', [EmailSettingController::class, 'toggleStatus'])->name('email-settings.toggle-status');
 
-    Route::post('icons/toggle-status/{id}', [IconController::class, 'toggleStatus'])->name('icons.toggle-status');
-    Route::post('brands/toggle-status/{id}', [BrandController::class, 'toggleStatus'])->name('brands.toggle-status');
+
+    Route::post('clients/toggle-status/{id}', [ClientController::class, 'toggleStatus'])->name('clients.toggle-status');
     Route::post('categories/toggle-status/{id}', [CategoryController::class, 'toggleStatus'])->name('categories.toggle-status');
     Route::post('banner/toggle-status/{id}', [PageBannerController::class, 'toggleStatus'])->name('banner.toggle-status');
     Route::post('deal-banner/toggle-status/{id}', [DealBannerController::class, 'toggleStatus'])->name('deal-banner.toggle-status');

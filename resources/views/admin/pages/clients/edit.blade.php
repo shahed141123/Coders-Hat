@@ -1,5 +1,5 @@
 
-<x-admin-app-layout :title="'Brand Edit'">
+<x-admin-app-layout :title="'Client Edit'">
     <div class="card card-flash">
         <!--begin::Card header-->
         <div class="card-header mt-6">
@@ -8,7 +8,7 @@
             <!--begin::Card toolbar-->
             <div class="card-toolbar">
                 <!--begin::Button-->
-                <a href="{{ route('admin.brands.index') }}" class="btn btn-light-info">
+                <a href="{{ route('admin.clients.index') }}" class="btn btn-light-info">
                     <!--begin::Svg Icon | path: brands/duotune/general/gen035.svg-->
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -27,7 +27,7 @@
         </div>
         <div class="card-body pt-0">
             <!--begin::Form-->
-            <form class="form" action="{{ route('admin.brands.update', $brand->id) }}" method="POST"
+            <form class="form" action="{{ route('admin.clients.update', $brand->id) }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
                 @method('PUT')

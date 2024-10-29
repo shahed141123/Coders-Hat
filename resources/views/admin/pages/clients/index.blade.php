@@ -1,4 +1,4 @@
-<x-admin-app-layout :title="'Brand Management'">
+<x-admin-app-layout :title="'Client Management'">
     <div class="row">
         <div class="col-xl-4 mx-auto">
             <div class="card card-flush shadow-sm">
@@ -12,7 +12,7 @@
                             <div class="flex-grow-1">
                                 <a href="javascript:void(0)">
                                 </a>
-                                <a href="#" class="text-black fs-5 fw-bold lh-0">Total Brand
+                                <a href="#" class="text-black fs-5 fw-bold lh-0">Total Client
                                     <span class="text-black fw-semibold d-block fs-6 pt-4">{{ date('d-M-Y') }}</span>
                                 </a>
                             </div>
@@ -29,9 +29,9 @@
     </div>
     <div class="card card-flush mt-10">
         <div class="card-header bg-success align-items-center">
-            <h3 class="card-title">Brands List</h3>
+            <h3 class="card-title">Clients List</h3>
             <div>
-                <a class="btn btn-sm btn-light-primary rounded-0" href="{{ route('admin.brands.create') }}">
+                <a class="btn btn-sm btn-light-primary rounded-0" href="{{ route('admin.clients.create') }}">
                     Add New
                 </a>
             </div>
@@ -82,7 +82,7 @@
         <script>
             $(document).on('change', '.status-toggle', function() {
                 const id = $(this).data('id');
-                const route = "{{ route('admin.brands.toggle-status', ':id') }}".replace(':id', id);
+                const route = "{{ route('admin.clients.toggle-status', ':id') }}".replace(':id', id);
                 toggleStatus(route, id);
             });
 

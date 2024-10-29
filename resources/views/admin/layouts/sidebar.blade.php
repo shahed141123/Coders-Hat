@@ -93,73 +93,46 @@
                 @php
                     $menuItems = [
                         [
-                            'title' => 'Products',
-                            'icon' => 'fa-solid fa-box-open text-danger fs-3',
-                            'routes' => [
-                                'admin.brands.index',
-                                'admin.brands.create',
-                                'admin.brands.edit',
-                                'admin.categories.index',
-                                'admin.categories.create',
-                                'admin.categories.edit',
-                                'admin.stock-management.index',
-                                'admin.shipping-management.index',
-                                'admin.product.index',
-                                'admin.product.create',
-                                'admin.product.edit',
+                            'title'   => 'Home',
+                            'icon'    => 'fa-solid fa-house text-primary fs-3',
+                            'routes'  => [
+                                'admin.clients.index',
+                                'admin.clients.create',
+                                'admin.clients.edit',
                             ],
                             'subMenu' => [
                                 [
-                                    'title' => 'Products List',
-                                    'routes' => ['admin.product.index', 'admin.product.create', 'admin.product.edit'],
-                                    'route' => 'admin.product.index',
+                                    'title'     => 'Home Page',
+                                    'routes'    => ['admin.clients.index', 'admin.clients.create', 'admin.clients.edit'],
+                                    'route'     => 'admin.clients.index',
                                 ],
                                 [
-                                    'title' => 'Brand List',
-                                    'routes' => ['admin.brands.index', 'admin.brands.create', 'admin.brands.edit'],
-                                    'route' => 'admin.brands.index',
+                                    'title'     => 'Client List',
+                                    'routes'    => ['admin.clients.index', 'admin.clients.create', 'admin.clients.edit'],
+                                    'route'     => 'admin.clients.index',
                                 ],
-                                [
-                                    'title' => 'Category List',
-                                    'routes' => [
-                                        'admin.categories.index',
-                                        'admin.categories.create',
-                                        'admin.categories.edit',
-                                    ],
-                                    'route' => 'admin.categories.index',
-                                ],
-                                [
-                                    'title' => 'Stock Info',
-                                    'routes' => ['admin.stock-management.index'],
-                                    'route' => 'admin.stock-management.index',
-                                ],
-                                [
-                                    'title' => 'Shipping',
-                                    'routes' => ['admin.shipping-management.index'],
-                                    'route' => 'admin.shipping-management.index',
-                                ],
+
                             ],
                         ],
                         [
-                            'title' => 'Orders',
-                            'icon' => 'fa-solid fa-cart-shopping text-warning fs-3',
+                            'title' => 'About Us',
+                            'icon' => 'fa-solid fa-info text-info fs-3',
                             'routes' => [
-                                'admin.order-management.index',
-                                'admin.order-management.create',
-                                'admin.order-management.edit',
-                                'admin.orderReport',
-                                'admin.orderDetails',
+                                'admin.about-us.index',
+                                'admin.team-member.index',
+                                // 'admin.about-us.create',
+                                // 'admin.about-us.edit',
                             ],
                             'subMenu' => [
                                 [
-                                    'title' => 'Order Report',
-                                    'routes' => ['admin.orderReport'],
-                                    'route' => 'admin.orderReport',
+                                    'title' => 'About Page',
+                                    'routes' => ['admin.about-us.index'],
+                                    'route' => 'admin.about-us.index',
                                 ],
                                 [
-                                    'title' => 'Order List',
-                                    'routes' => ['admin.order-management.index'],
-                                    'route' => 'admin.order-management.index',
+                                    'title' => 'Team Member',
+                                    'routes' => ['admin.team-member.index'],
+                                    'route' => 'admin.team-member.index',
                                 ],
                             ],
                         ],
@@ -287,9 +260,6 @@
                                 'admin.banner.index',
                                 'admin.banner.create',
                                 'admin.banner.edit',
-                                'admin.deal-banner.index',
-                                'admin.deal-banner.create',
-                                'admin.deal-banner.edit',
                                 'admin.catalogue.index',
                                 'admin.privacy-policy.index',
                                 'admin.privacy-policy.create',
@@ -310,11 +280,7 @@
                                     ],
                                     'route' => 'admin.deal-banner.index',
                                 ],
-                                [
-                                    'title' => 'Catalogue',
-                                    'routes' => ['admin.catalogue.index'],
-                                    'route' => 'admin.catalogue.index',
-                                ],
+
                                 [
                                     'title' => 'Terms & Condition',
                                     'routes' => [

@@ -31,23 +31,14 @@ Route::get('mycart', [HomeController::class, 'cart'])->name('cart');
 
 Route::get('compare-list', [HomeController::class, 'compareList'])->name('compare.list');
 Route::get('checkout/success/{id}', [HomeController::class, 'checkoutSuccess'])->name('checkout.success');
-Route::post('/cart/store/{id}', [CartController::class, 'addToCart'])->name('cart.store');
-Route::post('/comparelist/store/{id}', [CartController::class, 'compareList'])->name('compare.store');
-Route::post('/wishlist/store/{id}', [CartController::class, 'wishListStore'])->name('wishlist.store');
-Route::post('/cart/remove', [CartController::class, 'removeFromCart'])->name('cart.remove');
 Route::get('/{id}/stripe/payment', [StripeController::class, 'stripePayment'])->name('stripe.payment');
 Route::post('/stripe/pay', [StripeController::class, 'stripePost'])->name('stripe.pay');
 
 
 // Shop
-Route::get('allproducts', [ShopController::class, 'allproducts'])->name('allproducts');
-Route::get('/products/filter', [ShopController::class, 'filterProducts'])->name('products.filter');
 Route::post('global-search', [HomeController::class, 'globalSearch'])->name('global.search');
 
-Route::delete('wishlist/delete/{id}', [CartController::class, 'wishlistDestroy'])->name('wishlist.destroy');
-Route::delete('cart/delete/{rowId}', [CartController::class, 'cartDestroy'])->name('cart.destroy');
-Route::delete('cart/clear', [CartController::class, 'cartClear'])->name('cart.clear');
-Route::post('cart/update', [CartController::class, 'updateCart'])->name('cart.update');
+
 // Route::get('/filter-products', [filterProducts::class, 'filterProducts'])->name('filterProducts');
 
 

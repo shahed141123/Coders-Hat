@@ -1,4 +1,4 @@
-<x-admin-app-layout :title="'Brand Add'">
+<x-admin-app-layout :title="'Client Add'">
     <div class="card card-flash">
 
         <div class="card-header mt-6">
@@ -7,7 +7,7 @@
 
             <div class="card-toolbar">
 
-                <a href="{{ route('admin.brands.index') }}" class="btn btn-light-info">
+                <a href="{{ route('admin.clients.index') }}" class="btn btn-light-info">
 
                     <span class="svg-icon svg-icon-3">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -20,17 +20,15 @@
                                 fill="currentColor" />
                         </svg>
                     </span>
-
                     Back to the list
                 </a>
             </div>
         </div>
         <div class="card-body pt-0">
 
-            <form class="form" action="{{ route('admin.brands.store') }}" method="POST"
+            <form class="form" action="{{ route('admin.clients.store') }}" method="POST"
                 enctype="multipart/form-data">
                 @csrf
-
                 <div class="row">
                     <div class="col-lg-6 mb-7">
                         <x-metronic.label for="name"

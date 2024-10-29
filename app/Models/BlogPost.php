@@ -19,9 +19,14 @@ class BlogPost extends Model
      */
     protected $guarded = [];
 
+    public function getBlogCategoriesAttribute()
+    {
+        $categoryIds = json_decode($this->category_id, true) ?: [];
+        return BlogCategory::whereIn('id', $categoryIds)->get();
+    }
     public function blogCategory()
     {
-        return $this->belongsToMany(BlogCategory::class, 'category_id');
+        return $this->belongsTo(BlogCategory::class, 'category_id');
     }
     // public function blogTag()
     // {
@@ -29,7 +34,7 @@ class BlogPost extends Model
     // }
     public function blogTags()
     {
-        return $this->belongsToMany(BlogTag::class,'tag_id' , 'id');
+        return $this->belongsToMany(BlogTag::class, 'tag_id', 'id');
     }
     public function scopeActive($query)
     {

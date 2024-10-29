@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\User\Api\UserApiController;
 use App\Http\Controllers\Api\SiteController;
+use App\Http\Controllers\Admin\ContactController;
+use App\Http\Controllers\Admin\NewsletterController;
+use App\Http\Controllers\User\Api\UserApiController;
 use App\Http\Controllers\Admin\Api\CategoryApiController;
 
 /*
@@ -28,12 +30,14 @@ Route::middleware(['restrict_ip'])->group(function () {
     Route::get('faq-categories', [SiteController::class, 'faqCategories']);
     Route::get('faq-category/{slug}', [SiteController::class, 'categoryWiseFaqs']);
     Route::get('all-faqs', [SiteController::class, 'allFaq'])->name('allfaq');
+    Route::post('contact/store', [ContactController::class, 'store'])->name('contact.add');
+    Route::post('email-subscription/store', [NewsletterController::class, 'store'])->name('subscription.add');
+
 
     Route::middleware('auth:sanctum')->group(function () {
         Route::post('/logout', [UserApiController::class, 'logout']);
         Route::post('/change-password', [UserApiController::class, 'updatePassword']);
         Route::get('/profile', [UserApiController::class, 'profile']);
         Route::put('/profile', [UserApiController::class, 'editProfile']);
-        Route::apiResource('categories', CategoryApiController::class);
     });
 });

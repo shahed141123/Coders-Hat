@@ -79,9 +79,14 @@ class SiteController extends Controller
 
     public function blogDetails($slug)
     {
+        $blog = BlogPost::where('slug', $slug)->active()->first();
+
         return response()->json([
-            'blog' => BlogPost::with('blogCategory')->where('slug', $slug)->active()->first(),
+            'blog' => $blog, // Access the accessor
         ], 200);
+        // return response()->json([
+        //     'blog' => BlogPost::with('blogCategory')->where('slug', $slug)->active()->first(),
+        // ], 200);
     }
     // public function blogDetails($slug)
     // {

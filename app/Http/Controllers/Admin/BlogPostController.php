@@ -49,27 +49,27 @@ class BlogPostController extends Controller
         try {
             // Custom validation rules
             $validator = Validator::make($request->all(), [
-                'category_id' => 'nullable',
-                'tag_id' => 'nullable',
-                'featured' => 'nullable|in:0,1',
-                'type' => 'nullable|string|max:255',
-                'badge' => 'nullable|string|max:255',
-                'title' => 'nullable|string|unique:blog_posts,title,',
-                'header' => 'nullable|string|max:255',
+                'category_id'       => 'nullable',
+                'tag_id'            => 'nullable',
+                'featured'          => 'nullable|in:0,1',
+                'type'              => 'nullable|string|max:255',
+                'badge'             => 'nullable|string|max:255',
+                'title'             => 'nullable|string|unique:blog_posts,title,',
+                'header'            => 'nullable|string|max:255',
                 'short_description' => 'nullable|string',
-                'long_description' => 'nullable|string',
-                'author' => 'nullable|string|max:255',
-                'address' => 'nullable|string|max:255',
-                'tags' => 'nullable',
-                'logo' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-                'image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
-                'banner_image' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:3072',
-                'additional_url' => 'nullable|string|max:255|url',
-                'footer' => 'nullable|string',
-                'status' => 'nullable|string|max:255',
+                'long_description'  => 'nullable|string',
+                'author'            => 'nullable|string|max:255',
+                'address'           => 'nullable|string|max:255',
+                'tags'              => 'nullable',
+                'logo'              => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'image'             => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+                'banner_image'      => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:3072',
+                'additional_url'    => 'nullable|string|max:255|url',
+                'footer'            => 'nullable|string',
+                'status'            => 'nullable|string|max:255',
             ], [
-                'logo.image' => 'The logo must be an image.',
-                'image.image' => 'The image must be an image.',
+                'logo.image'         => 'The logo must be an image.',
+                'image.image'        => 'The image must be an image.',
                 'banner_image.image' => 'The banner image must be an image.',
                 'additional_url.url' => 'The additional URL must be a valid URL.',
             ]);
@@ -103,7 +103,7 @@ class BlogPostController extends Controller
 
             // Create a new BlogPost record
             $blogPost = BlogPost::create([
-                'category_id'       => json_encode($request->category_id),
+                'category_id'       => $request->category_id,
                 'tag_id'            => json_encode($request->tag_id),
                 'featured'          => $request->featured,
                 'type'              => $request->type,
@@ -227,7 +227,7 @@ class BlogPostController extends Controller
             // dd($uploadedFiles['image']['file_path']);
             // Update the BlogPost record
             $blogPost->update([
-                'category_id'       => json_encode($request->category_id),
+                'category_id'       => $request->category_id,
                 'tag_id'            => json_encode($request->tag_id),
                 'featured'          => $request->featured,
                 'type'              => $request->type,

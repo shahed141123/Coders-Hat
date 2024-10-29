@@ -222,49 +222,13 @@
                                         data-control="select2" data-placeholder="Select an option"
                                         data-allow-clear="true" id="category_id" multiple>
                                         <option></option>
-                                        @php
-                                            // Ensure $categoryIds is an array
-                                            $categoryIds = isset($blogPost->category_id)
-                                                ? json_decode($blogPost->category_id, true)
-                                                : [];
-                                            if (!is_array($categoryIds)) {
-                                                $categoryIds = [];
-                                            }
-                                            $tagIds = isset($blogPost->tag_id)
-                                                ? json_decode($blogPost->tag_id, true)
-                                                : [];
-                                            if (!is_array($tagIds)) {
-                                                $tagIds = [];
-                                            }
-                                        @endphp
-
                                         @foreach ($blogCategories as $blogcategory)
-                                            <option value="{{ $blogcategory->id }}"
-                                                {{ in_array($blogcategory->id, $categoryIds) ? 'selected' : '' }}>
+                                            <option value="{{ $blogcategory->id }}" @selected($blogcategory->id == $blogPost->category_id)>
                                                 {{ $blogcategory->name }}
                                             </option>
                                         @endforeach
                                     </x-metronic.select-option>
-                                    {{-- <x-metronic.select-option class="form-select mb-2" name="category_id[]"
-                                        data-control="select2" data-placeholder="Select an option"
-                                        data-allow-clear="true" id="category_id" multiple>
-                                        <option></option>
-                                        @php
-                                            $categoryIds = isset($blogPost->category_id)
-                                                ? json_decode($blogPost->category_id, true)
-                                                : [];
-                                            $tagIds = isset($blogPost->tag_id)
-                                                ? json_decode($blogPost->tag_id, true)
-                                                : [];
-                                        @endphp
 
-                                        @foreach ($blogCategories as $blogcategory)
-                                            <option value="{{ $blogcategory->id }}"
-                                                {{ in_array($blogcategory->id, $categoryIds) ? 'selected' : '' }}>
-                                                {{ $blogcategory->name }}
-                                            </option>
-                                        @endforeach
-                                    </x-metronic.select-option> --}}
                                 </div>
                                 <div class="fv-row">
                                     <x-metronic.label class="form-label">Tag Id</x-metronic.label>

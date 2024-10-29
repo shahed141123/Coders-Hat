@@ -6,10 +6,9 @@
         <a href="{{ route('dashboard') }}">
             <img alt="Logo"
                 src="{{ !empty($setting->site_logo_white) && file_exists(public_path('storage/' . optional($setting)->site_logo_white)) ? asset('storage/' . optional($setting)->site_logo_white) : asset('frontend/img/logo.png') }}"
-                class="w-100px">
-            {{-- <img alt="Logo" src="{{ asset('frontend/img/logo.png') }}" class="w-100px"> --}}
+                class="h-55px logo">
         </a>
-        <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-dark aside-toggle active"
+        <div id="kt_aside_toggle" class="btn btn-icon w-auto px-0 btn-active-color-primary aside-toggle"
             data-kt-toggle="true" data-kt-toggle-state="active" data-kt-toggle-target="body"
             data-kt-toggle-name="aside-minimize">
             <span class="svg-icon svg-icon-1 rotate-180">

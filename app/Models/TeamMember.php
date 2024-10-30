@@ -15,4 +15,8 @@ class TeamMember extends Model
      * @var array
      */
     protected $guarded = [];
+    public function scopeActive($query)
+    {
+        return $query->where('status', 'active');
+    }
 }

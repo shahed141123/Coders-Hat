@@ -1,9 +1,8 @@
 <x-admin-app-layout :title="'Team Member List'">
     <div class="card">
-        <div class="card-header bg-primary d-flex justify-content-between align-items-center">
+        <div class="card-header bg-info d-flex justify-content-between align-items-center">
             <h1 class="mb-0 text-white">Manage Your Team Member</h1>
-            <a href="javascript:void(0)" class="btn btn-light-primary rounded-2" data-bs-toggle="modal"
-                data-bs-target="#AddModal">
+            <a href="{{ route('admin.team-member.create') }}" class="btn btn-light-primary rounded-2">
                 <span class="svg-icon svg-icon-3">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                         fill="none">
@@ -25,28 +24,32 @@
                         <th width="8%">SL No.</th>
                         <th width="12%">Image</th>
                         <th width="28%">Name</th>
-                        <th width="27%">Meta Title</th>
-                        <th width="15%">Status</th>
-                        <th width="12%">Action</th>
+                        <th width="15%">Designation</th>
+                        <th width="12%">Order</th>
+                        <th width="12%">Status</th>
+                        <th width="10%">Action</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($teams as $blogcategory)
+                    @foreach ($teams as $team)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
-                            <td><img class="w-65px" src="{{ asset('storage/'.$blogcategory->image ) }}" alt=""></td>
-                            <td>{{ $blogcategory->name }}</td>
-                            <td>{{ $blogcategory->meta_title }}</td>
                             <td>
-                                <span class="badge {{ $blogcategory->status == 'active' ? 'bg-success' : 'bg-danger' }}">
-                                {{ $blogcategory->status == 'active' ? 'Active' : 'InActive' }}</span>
+                                <img class="w-65px" src="{{ asset('storage/' . $team->image) }}" alt="">
+                            </td>
+                            <td>{{ $team->name }}</td>
+                            <td>{{ $team->designation }}</td>
+                            <td>{{ $team->order }}</td>
+                            <td>
+                                <span class="badge {{ $team->status == 'active' ? 'bg-success' : 'bg-danger' }}">
+                                    {{ $team->status == 'active' ? 'Active' : 'InActive' }}</span>
                             </td>
                             <td>
-                                <a href="#" class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1"
-                                    data-bs-toggle="modal" data-bs-target="#EditModal-{{ $blogcategory->id }}">
+                                <a href="{{ route('admin.team-member.edit', $team->id) }}"
+                                    class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1">
                                     <i class="fa-solid fa-pen"></i>
                                 </a>
-                                <a href="{{ route('admin.blog-category.destroy', $blogcategory->id) }}"
+                                <a href="{{ route('admin.team-member.destroy', $team->id) }}"
                                     class="btn btn-icon btn-bg-light btn-active-color-primary btn-sm me-1 delete">
                                     <i class="fa-solid fa-trash-alt"></i>
                                 </a>
@@ -57,163 +60,13 @@
             </table>
         </div>
     </div>
-    {{-- Team Member Create Modal --}}
-    <div class="modal fade" tabindex="-1" id="AddModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header py-3 bg-primary">
-                    <h3 class="modal-title text-white">Create Team Member</h3>
-                    <button type="button" class="btn btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                        aria-label="Close">
-                        <i class="fa-solid fa-xmark fs-1"></i>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <form id="kt_docs_formvalidation_text" class="form"
-                        action="{{ route('admin.blog-category.store') }}" method="post" enctype="multipart/form-data">
-                        @csrf
-                        <div class="fv-row mb-5">
-                            <x-metronic.label class="required fw-semibold fs-6 mb-2">Name</x-metronic.label>
-                            <x-metronic.input type="text" name="name" class="form-control mb-3 mb-lg-0"
-                                placeholder="Set Team Member Name" :value="old('name')" />
-                        </div>
-                        <div class="fv-row mb-5">
-                            <x-metronic.label class="fw-semibold fs-6 mb-2">Meta Title</x-metronic.label>
-                            <x-metronic.input type="text" name="meta_title" class="form-control mb-3 mb-lg-0"
-                                placeholder="Set Blog Meta Title" :value="old('meta_title')" />
-                        </div>
-                        <div class="fv-row mb-5">
-                            <x-metronic.label for="image" class="col-form-label fw-bold fs-6 ">{{ __('Team Member Image/icon') }}
-                            </x-metronic.label>
-                            <x-metronic.file-input id="image" name="image" class="form-control mb-3 mb-lg-0"
-                                :value="old('image')"></x-metronic.file-input>
-                        </div>
-                        <div class="fv-row mb-5">
-                            <x-metronic.label for="status" class="col-form-label required fw-bold fs-6">
-                                {{ __('Select a Status ') }}</x-metronic.label>
-                            <x-metronic.select-option id="status" name="status" data-hide-search="true"
-                                data-placeholder="Select an option">
-                                <option></option>
-                                <option value="active">Active</option>
-                                <option value="inactive">Inactive</option>
-                            </x-metronic.select-option>
-                        </div>
-                        <div class="fv-row mb-5">
-                            <x-metronic.label class="fw-semibold fs-6 mb-2">Description</x-metronic.label>
-                            <x-metronic.textarea class="form-control" placeholder="Set The Description"
-                                name="description" id="floatingTextarea2" style="height: 100px"
-                                :value="old('description')"></x-metronic.textarea>
-                        </div>
-                        <div class="d-flex justify-content-end">
-                            {{-- <button id="kt_docs_formvalidation_text_submit" type="submit" class="btn btn-primary">
-                                <span class="indicator-label">Create Category</span>
-                                <span class="indicator-progress">Please wait... <span
-                                        class="spinner-border spinner-border-sm align-middle ms-2"></span></span>
-                            </button> --}}
-                            <button type="submit" class="btn btn-primary">
-                                Submit
-                            </button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    @foreach ($blogCategories as $category)
-        <div class="modal fade" tabindex="-1" id="EditModal-{{ $category->id }}">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header py-3 bg-light-primary">
-                        <h3 class="modal-title">Update Team Member</h3>
-                        <button type="button" class="btn btn-sm btn-active-light-primary ms-2" data-bs-dismiss="modal"
-                            aria-label="Close">
-                            <i class="fa-solid fa-xmark fs-1"></i>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <form id="kt_docs_formvalidation_text" class="form"
-                            action="{{ route('admin.blog-category.update',$category->id) }}" method="post" enctype="multipart/form-data">
-                            @csrf
-                            @method('PUT')
-                            <div class="fv-row mb-5">
-                                <x-metronic.label class="required fw-semibold fs-6 mb-2">Name</x-metronic.label>
-                                <x-metronic.input type="text" name="name" class="form-control mb-3 mb-lg-0"
-                                    placeholder="Set Name" :value="old('name',$category->name)" />
-                            </div>
-                            <div class="fv-row mb-5">
-                                <x-metronic.label class="fw-semibold fs-6 mb-2">Meta Title</x-metronic.label>
-                                <x-metronic.input type="text" name="meta_title" class="form-control mb-3 mb-lg-0"
-                                    placeholder="Set Meta Title" :value="old('meta_title',$category->meta_title)" />
-                            </div>
-                            <div class="fv-row mb-5">
-                                <x-metronic.label for="image" class="col-form-label fw-bold fs-6 ">{{ __('Blog Image') }}
-                                </x-metronic.label>
-                                <x-metronic.file-input id="image" name="image" class="form-control mb-3 mb-lg-0"
-                                    :value="old('image')" :source="asset('storage/'.$category->image)"></x-metronic.file-input>
-                            </div>
-                            <div class="fv-row mb-5">
-                                <x-metronic.label for="status" class="col-form-label required fw-bold fs-6">
-                                    {{ __('Select a Status ') }}</x-metronic.label>
-                                <x-metronic.select-option id="status" name="status" data-hide-search="true"
-                                    data-placeholder="Select an option">
-                                    <option></option>
-                                    <option value="active" @selected($category->status == "active") >Active</option>
-                                    <option value="inactive" @selected($category->status == "inactive") >Inactive</option>
-                                </x-metronic.select-option>
-                            </div>
-                            <div class="fv-row mb-5">
-                                <x-metronic.label class="fw-semibold fs-6 mb-2">Description</x-metronic.label>
-                                <x-metronic.textarea class="form-control" placeholder="Set The Description"
-                                    name="description" id="floatingTextarea2" style="height: 100px"
-                                    :value="old('description')">{!! $category->description !!}</x-metronic.textarea>
-                            </div>
-                            <div class="d-flex justify-content-end">
-                                <button type="submit" class="btn btn-primary">
-                                    Submit
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    @endforeach
-    {{-- Team Member Create Modal End --}}
     @push('scripts')
         <script>
             document.addEventListener('DOMContentLoaded', function() {
                 const form = document.getElementById('kt_docs_formvalidation_text');
                 const submitButton = document.getElementById('kt_docs_formvalidation_text_submit');
 
-                var validator = FormValidation.formValidation(
-                    form, {
-                        fields: {
-                            'name': {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'This Field Required'
-                                    }
-                                }
-                            },
-                            'status': {
-                                validators: {
-                                    notEmpty: {
-                                        message: 'This Field Required'
-                                    }
-                                }
-                            },
-                        },
-                        plugins: {
-                            trigger: new FormValidation.plugins.Trigger(),
-                            bootstrap: new FormValidation.plugins.Bootstrap5({
-                                rowSelector: '.fv-row',
-                                eleInvalidClass: '',
-                                eleValidClass: ''
-                            })
-                        }
-                    }
-                );
 
                 submitButton.addEventListener('click', function(e) {
                     e.preventDefault();

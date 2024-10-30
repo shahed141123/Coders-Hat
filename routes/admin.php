@@ -104,20 +104,21 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         [
             'blog-category'       => BlogCategoryController::class, //done
             'blog-tags'           => BlogTagController::class, //done
-            'team-member'         => TeamMemberController::class, //done
+
         ],
         ['except' => ['show', 'create', 'edit']]
     );
     Route::resources(
         [
-            'faq'             => FaqController::class,
-            'role'            => RoleController::class,
-            'permission'      => PermissionController::class,
-            'email-settings'  => EmailSettingController::class,
-            'terms-condition' => TermsAndConditionController::class,
-            'privacy-policy'  => PrivacyPolicyController::class,
-            'deal-banner'     => DealBannerController::class,
-            'blog-post'       => BlogPostController::class,
+            'faq'               => FaqController::class,
+            'role'              => RoleController::class,
+            'permission'        => PermissionController::class,
+            'email-settings'    => EmailSettingController::class,
+            'terms-condition'   => TermsAndConditionController::class,
+            'privacy-policy'    => PrivacyPolicyController::class,
+            'deal-banner'       => DealBannerController::class,
+            'blog-post'         => BlogPostController::class,
+            'team-member'       => TeamMemberController::class, //done
         ],
         ['except' => ['show']]
     );

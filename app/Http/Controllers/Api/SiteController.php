@@ -18,7 +18,9 @@ use App\Models\PrivacyPolicy;
 use App\Models\ShippingMethod;
 use App\Models\TermsAndCondition;
 use App\Http\Controllers\Controller;
+use App\Models\Client;
 use App\Models\FaqCategory;
+use App\Models\TeamMember;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -76,6 +78,14 @@ class SiteController extends Controller
             'blog_posts' => BlogPost::latest('id')->where('status', 'publish')->get(),
         ], 200);
     }
+
+    public function allClients()
+    {
+        return response()->json([
+            'clients' => Client::latest('id')->active()->get(),
+        ], 200);
+    }
+
     public function settingsInfo()
     {
         return response()->json([
@@ -133,6 +143,13 @@ class SiteController extends Controller
     {
         return response()->json([
             'faqs' => Faq::latest('id')->active()->get(),
+        ], 200);
+    }
+
+    public function allTeamMember()
+    {
+        return response()->json([
+            'teams' => TeamMember::orderBy('order','ASC')->active()->get(),
         ], 200);
     }
 

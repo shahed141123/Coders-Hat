@@ -65,12 +65,12 @@ class StaffController extends Controller
         }
 
         $user = Admin::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'username' => $request->username,
-            'designation' => $request->designation,
-            'photo' => $uploadedFiles['photo']['status']    == 1 ? $uploadedFiles['photo']['file_path']   : null,
-            'password' => Hash::make($request->password),
+            'name'          => $request->name,
+            'email'         => $request->email,
+            'username'      => $request->username,
+            'designation'   => $request->designation,
+            'photo'         => $uploadedFiles['photo']['status']    == 1 ? $uploadedFiles['photo']['file_path']   : null,
+            'password'      => Hash::make($request->password),
         ]);
 
         $user->syncRoles($request->roles);

@@ -41,6 +41,7 @@ use App\Http\Controllers\Admin\StaffController;
 use App\Http\Controllers\Admin\StockManagementController;
 use App\Http\Controllers\Admin\TeamMemberController;
 use App\Http\Controllers\Admin\TermsAndConditionController;
+use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\Admin\UserManagementController;
 use App\Http\Controllers\DealBannerController;
 
@@ -104,6 +105,7 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
         [
             'blog-category'       => BlogCategoryController::class, //done
             'blog-tags'           => BlogTagController::class, //done
+            'testimonial'         => TestimonialController::class, //done
 
         ],
         ['except' => ['show', 'create', 'edit']]

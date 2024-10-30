@@ -131,7 +131,7 @@
                     <div class="col-lg-3 mb-7">
                         <x-metronic.label for="status"
                             class="fw-bold fs-6 mb-2">{{ __('Status') }}</x-metronic.label>
-                            <select class="form-select" name="status" data-control="select2" data-hide-search="true"
+                        <select class="form-select" name="status" data-control="select2" data-hide-search="true"
                             data-allow-clear="true" data-placeholder="Select status">
                             <option value="active" {{ old('status') == 'active' ? 'selected' : '' }}>Active</option>
                             <option value="on_leave" {{ old('status') == 'on_leave' ? 'selected' : '' }}>On Leave

@@ -120,6 +120,9 @@
                             'routes' => [
                                 'admin.about-us.index',
                                 'admin.team-member.index',
+                                'admin.team-member.create',
+                                'admin.team-member.edit',
+                                'admin.testimonial.index',
                                 // 'admin.about-us.create',
                                 // 'admin.about-us.edit',
                             ],
@@ -133,6 +136,11 @@
                                     'title' => 'Team Member',
                                     'routes' => ['admin.team-member.index'],
                                     'route' => 'admin.team-member.index',
+                                ],
+                                [
+                                    'title' => 'Testimonial',
+                                    'routes' => ['admin.testimonial.index'],
+                                    'route' => 'admin.testimonial.index',
                                 ],
                             ],
                         ],
